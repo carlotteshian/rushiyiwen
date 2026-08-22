@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>rushiyiwen — “Thus I Have Heard”</title>
+  <meta name="description" content="“Thus I Have Heard": Reflections on the future from classical texts, philosophy, psychology, sociology, literature, science, technology, art, and modern thought. Nebulae and stardust converging into the visage of Kunpeng." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body{height:100%;margin:0;background:#02030a;color:#eae0c8;font-family:serif}
+    header{padding:28px;text-align:center}
+    h1{margin:0;font-size:22px;color:#f6df9d}
+    p.subtitle{margin:8px auto 0;max-width:900px;font-size:14px;color:#e6dcc0}
+    #canvas-wrap{position:fixed;inset:0;z-index:0}
+    #ui{position:relative;z-index:10}
+    .gallery{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:20px}
+    .gallery img{width:160px;height:auto;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    footer{padding:20px;text-align:center;color:#b9a97d;font-size:13px}
+    a.link{color:#f6df9d}
+  </style>
+</head>
+<body>
+  <div id="canvas-wrap"></div>
+  <div id="ui">
+    <header>
+      <h1>rushiyiwen</h1>
+      <p class="subtitle">“Thus I Have Heard": Reflections on the future from classical texts, philosophy, psychology, sociology, literature, science, technology, art, and modern thought. Nebulae and stardust converging into the visage of Kunpeng.</p>
+    </header>
+
+    <main>
+      <!-- Three.js scene is created by rushiyiwen5.js and appends renderer to document.body -->
+      <section style="max-width:1100px;margin:24px auto;padding:12px;background:rgba(6,8,18,0.28);border-radius:10px;">
+        <h2 style="margin:0 0 12px;color:#f0d995;text-align:center">Kunpeng views (gallery)</h2>
+        <div class="gallery" id="gallery"></div>
+        <p style="text-align:center;color:#b9a97d;font-size:12px;margin-top:8px">If your filenames differ, edit <code>index.html</code> to match actual names in <code>kunpeng_8views_assets/</code>.</p>
+      </section>
+    </main>
+
+    <footer>
+      Hosted on GitHub Pages — <a class="link" href="https://github.com/carlotteshian/rushiyiwen">Repository</a>
+    </footer>
+  </div>
+
+  <script type="module">
+    // Load the original visualization module (the file you uploaded)
+    import 'https://cdn.jsdelivr.net/gh/carlotteshian/rushiyiwen@main/rushiyiwen5.js';
+
+    // Simple gallery loader — update filenames array if your files have different names
+    const base = 'https://cdn.jsdelivr.net/gh/carlotteshian/rushiyiwen@main/kunpeng_8views_assets/';
+    const filenames = [
+      'view01.png','view02.png','view03.png','view04.png',
+      'view05.png','view06.png','view07.png','view08.png'
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    filenames.forEach(name => {
+      const img = document.createElement('img');
+      img.src = base + name;
+      img.alt = name;
+      img.loading = 'lazy';
+      img.onerror = () => { img.style.display = 'none'; };
+      gallery.appendChild(img);
+    });
+
+    // If you prefer to use raw.githubusercontent links instead, change `base` accordingly.
+  </script>
+</body>
+</html>
